@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace SplittingSentencesCorpus
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        
+       
+            int j = 0;
+            foreach (string line in File.ReadAllLines("corpus.txt"))
+            {
+                string[] chunks = line.Split(',');
+                foreach  (string chunk in chunks)
+                {
+                    
+                    Console.WriteLine("{0}:{1}", j, chunk);
+                }
+                j++;
+                Console.ReadLine();
+                Console.WriteLine("keep on pressing the ENTER key to get the next meaningful sentence");
+            }
+            Console.ReadLine();
+        }
+    }
+}
